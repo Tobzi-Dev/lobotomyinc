@@ -1,0 +1,34 @@
+{
+	"schemaVersion": 1,
+	"id": "lobotomyinc",
+	"version": "${version}",
+	"name": "LobotomyInc",
+	"description": "Lobotomise your villagers renaming them to [configured in mod config]",
+	"authors": [
+		"Tobzi"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/lobotomyinc/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.tobzi.lobotomyinc.LobotomyInc"
+		]
+	},
+	"mixins": [
+		"lobotomyinc.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.17.2",
+		"minecraft": "~1.21.8",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}

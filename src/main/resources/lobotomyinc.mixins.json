@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "package": "com.tobzi.lobotomyinc.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "BrainMixin",
+    "VillagerEntityMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+	}
+}
