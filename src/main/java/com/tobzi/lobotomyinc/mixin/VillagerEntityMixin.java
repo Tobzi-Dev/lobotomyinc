@@ -26,7 +26,6 @@ public abstract class VillagerEntityMixin {
     }
     @Inject(method = "sendAiDebugData", at = @At("HEAD"), cancellable = true)
     private void onSendAiDebugData(CallbackInfo ci) {
-        // We only apply this logic if the lobotomy feature is enabled.
         if (!ModConfig.LOBOTOMIZE_VILLAGERS_ENABLED) {
             return;
         }
@@ -34,10 +33,7 @@ public abstract class VillagerEntityMixin {
         VillagerEntity self = (VillagerEntity) (Object) this;
         Text customName = self.getCustomName();
 
-        // Check if the villager has a name and if that name, in lowercase, is in our list.
         if (customName != null && ModConfig.LOBOTOMY_NAMES.contains(customName.getString().toLowerCase())) {
-            // If the villager is lobotomized, cancel the method entirely.
-            // This prevents the expensive debug data from being sent and saves performance.
             ci.cancel();
         }
     }

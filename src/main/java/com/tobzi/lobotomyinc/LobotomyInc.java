@@ -15,7 +15,7 @@ public class LobotomyInc implements ModInitializer {
 	public void onInitialize() {
 
 
-		LOGGER.info("Lobotomising villagers!");
+		LOGGER.info("[LobotomyInc] Lobotomizing villagers!");
         ModConfig.load();
 	}
 }
