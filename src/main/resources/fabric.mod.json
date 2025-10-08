@@ -10,7 +10,7 @@
 	"contact": {
 		"sources": "https://github.com/Tobzi-Dev/lobotomyinc"
 	},
-	"license": "CC0-1.0",
+	"license": "Apache-2.0 license",
 	"icon": "assets/lobotomyinc/icon.png",
 	"environment": "*",
 	"entrypoints": {
