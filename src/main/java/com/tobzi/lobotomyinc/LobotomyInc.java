@@ -14,8 +14,7 @@ public class LobotomyInc implements ModInitializer {
 	@Override
 	public void onInitialize() {
 
-
-		LOGGER.info("Lobotomising villagers!");
+		LOGGER.info("[LobotomyInc] Lobotomising villagers!");
         ModConfig.load();
 	}
 }
