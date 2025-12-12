@@ -24,17 +24,4 @@ public abstract class VillagerEntityMixin {
             self.getNavigation().stop();
         }
     }
-    @Inject(method = "sendAiDebugData", at = @At("HEAD"), cancellable = true)
-    private void onSendAiDebugData(CallbackInfo ci) {
-        if (!ModConfig.LOBOTOMIZE_VILLAGERS_ENABLED) {
-            return;
-        }
-
-        VillagerEntity self = (VillagerEntity) (Object) this;
-        Text customName = self.getCustomName();
-
-        if (customName != null && ModConfig.LOBOTOMY_NAMES.contains(customName.getString().toLowerCase())) {
-            ci.cancel();
-        }
-    }
 }
