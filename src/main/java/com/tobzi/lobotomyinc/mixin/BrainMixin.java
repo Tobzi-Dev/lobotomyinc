@@ -21,7 +21,7 @@ public class BrainMixin {
 
             if (customName != null && ModConfig.LOBOTOMY_NAMES.contains(customName.getString().toLowerCase())) {
 
-                if (!villager.shouldRestock()) {
+                if (!villager.shouldRestock(world)) {
                     ci.cancel();
                 }
             }
