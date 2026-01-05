@@ -4,7 +4,8 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "BrainMixin",
-    "VillagerEntityMixin"
+    "VillagerEntityMixin",
+    "NameTagItemMixin"
   ],
   "injectors": {
     "defaultRequire": 1

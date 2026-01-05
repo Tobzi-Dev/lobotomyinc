@@ -19,7 +19,7 @@ public class BrainMixin {
         if (entity instanceof VillagerEntity villager) {
             Text customName = villager.getCustomName();
 
-            if (customName != null && ModConfig.LOBOTOMY_NAMES.contains(customName.getString().toLowerCase())) {
+            if (customName != null && ModConfig.isLobotomizedName(customName.getString())) {
 
                 if (!villager.shouldRestock(world)) {
                     ci.cancel();
