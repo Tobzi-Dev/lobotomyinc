@@ -6,6 +6,7 @@ import com.mojang.brigadier.arguments.BoolArgumentType;
 import com.tobzi.lobotomyinc.LobotomyInc;
 import com.tobzi.lobotomyinc.config.ModConfig;
 import net.minecraft.server.command.ServerCommandSource;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 
 import static net.minecraft.server.command.CommandManager.argument;
@@ -15,7 +16,12 @@ public class LobotomyCommand {
 
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
         dispatcher.register(literal(LobotomyInc.MOD_ID)
-                .requires(source -> source.hasPermissionLevel(2))
+                .requires((ServerCommandSource source) -> {
+                    if (source.getEntity() instanceof ServerPlayerEntity player) {
+                        return source.getServer().getPlayerManager().isOperator(player.getPlayerConfigEntry());
+                    }
+                    return true;
+                })
 
                 .then(literal("config")
                         .then(literal("reload")
