@@ -1,6 +1,8 @@
 package com.tobzi.lobotomyinc;
 
+import com.tobzi.lobotomyinc.command.LobotomyCommand;
 import com.tobzi.lobotomyinc.config.ModConfig;
+import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
@@ -16,5 +18,9 @@ public class LobotomyInc implements ModInitializer {
 
 		LOGGER.info("[LobotomyInc] Lobotomising villagers!");
         ModConfig.load();
+
+        CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
+            LobotomyCommand.register(dispatcher);
+        });
 	}
 }

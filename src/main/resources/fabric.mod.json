@@ -3,7 +3,7 @@
 	"id": "lobotomyinc",
 	"version": "${version}",
 	"name": "LobotomyInc",
-	"description": "Lobotomise your villagers renaming them to [configured in mod config]",
+	"description": "Lobotomise your villagers using nametags",
 	"authors": [
 		"Tobzi"
 	],
@@ -23,7 +23,7 @@
 	],
 	"depends": {
 		"fabricloader": ">=0.17.2",
-		"minecraft": "~1.21.8",
+		"minecraft": ">=1.21 <=1.21.8",
 		"java": ">=21",
 		"fabric-api": "*"
 	},
