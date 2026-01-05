@@ -20,7 +20,7 @@ public abstract class VillagerEntityMixin {
         VillagerEntity self = (VillagerEntity) (Object) this;
         Text customName = self.getCustomName();
 
-        if (customName != null && ModConfig.LOBOTOMY_NAMES.contains(customName.getString().toLowerCase())) {
+        if (customName != null && ModConfig.isLobotomizedName(customName.getString())) {
             self.getNavigation().stop();
         }
     }
