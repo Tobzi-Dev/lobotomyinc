@@ -1,14 +1,14 @@
 package com.tobzi.lobotomyinc.mixin;
 
 import com.tobzi.lobotomyinc.config.ModConfig;
-import net.minecraft.entity.passive.VillagerEntity;
-import net.minecraft.text.Text;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.npc.villager.Villager;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(VillagerEntity.class)
+@Mixin(Villager.class)
 public abstract class VillagerEntityMixin {
 
     @Inject(method = "tick", at = @At("HEAD"))
@@ -17,8 +17,8 @@ public abstract class VillagerEntityMixin {
             return;
         }
 
-        VillagerEntity self = (VillagerEntity) (Object) this;
-        Text customName = self.getCustomName();
+        Villager self = (Villager) (Object) this;
+        Component customName = self.getCustomName();
 
         if (customName != null && ModConfig.isLobotomizedName(customName.getString())) {
             self.getNavigation().stop();

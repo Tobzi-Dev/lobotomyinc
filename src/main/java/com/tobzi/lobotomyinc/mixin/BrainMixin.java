@@ -1,11 +1,11 @@
 package com.tobzi.lobotomyinc.mixin;
 
 import com.tobzi.lobotomyinc.config.ModConfig;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.ai.brain.Brain;
-import net.minecraft.entity.passive.VillagerEntity;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.text.Text;
+import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.Brain;
+import net.minecraft.world.entity.npc.villager.Villager;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -15,9 +15,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class BrainMixin {
 
     @Inject(method = "tick", at = @At("HEAD"), cancellable = true)
-    private void onTick(ServerWorld world, LivingEntity entity, CallbackInfo ci) {
-        if (entity instanceof VillagerEntity villager) {
-            Text customName = villager.getCustomName();
+    private void onTick(ServerLevel world, LivingEntity entity, CallbackInfo ci) {
+        if (entity instanceof Villager villager) {
+            Component customName = villager.getCustomName();
 
             if (customName != null && ModConfig.isLobotomizedName(customName.getString())) {
 
