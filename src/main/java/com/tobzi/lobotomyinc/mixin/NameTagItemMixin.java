@@ -25,13 +25,13 @@ public class NameTagItemMixin {
             ),
             cancellable = true
     )
-    private void preventConsumption(ItemStack stack, Player user, LivingEntity entity, InteractionHand hand, CallbackInfoReturnable<InteractionResult> cir) {
+    private void preventConsumption(ItemStack itemStack, Player player, LivingEntity target, InteractionHand type, CallbackInfoReturnable<InteractionResult> cir) {
         if (ModConfig.FREE_NAMETAG) {
 
-            if (entity instanceof Villager) {
+            if (target instanceof Villager) {
 
-                Component name = stack.getHoverName();
-                if (name != null && ModConfig.isLobotomizedName(name.getString())) {
+                Component name = itemStack.getHoverName();
+                if (ModConfig.isLobotomizedName(name.getString())) {
 
                     cir.setReturnValue(InteractionResult.SUCCESS);
                 }

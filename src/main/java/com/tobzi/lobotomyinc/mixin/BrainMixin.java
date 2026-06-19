@@ -15,13 +15,13 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class BrainMixin {
 
     @Inject(method = "tick", at = @At("HEAD"), cancellable = true)
-    private void onTick(ServerLevel world, LivingEntity entity, CallbackInfo ci) {
-        if (entity instanceof Villager villager) {
+    private void onTick(ServerLevel level, LivingEntity body, CallbackInfo ci) {
+        if (body instanceof Villager villager) {
             Component customName = villager.getCustomName();
 
             if (customName != null && ModConfig.isLobotomizedName(customName.getString())) {
 
-                if (!villager.shouldRestock(world)) {
+                if (!villager.shouldRestock(level)) {
                     ci.cancel();
                 }
             }
