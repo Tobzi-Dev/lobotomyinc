@@ -16,18 +16,20 @@
 	"entrypoints": {
 		"main": [
 			"com.tobzi.lobotomyinc.LobotomyInc"
-		]
+		],
+		"modmenu": ["com.tobzi.lobotomyinc.client.ModMenu"]
+	},
+	"suggests": {
+		"modmenu": "*",
+		"yet_another_config_lib_v3": "*"
 	},
 	"mixins": [
 		"lobotomyinc.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.18.5",
-        "minecraft": ">=26.1",
+        "minecraft": ">=26.3",
 		"java": ">=25",
 		"fabric-api": "*"
-	},
-	"suggests": {
-		"another-mod": "*"
 	}
 }
